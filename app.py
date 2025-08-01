@@ -83,6 +83,12 @@ def humanize_text_endpoint():
         if add_breathing:
             instructions.append("Insira a tag <breath> no início de frases ou antes de cláusulas importantes para simular uma inspiração natural do locutor.")
             
+        # [NOVO] Adiciona a instrução para o tom sorridente
+        if add_smiling_tone:
+            instructions.append("Adote um 'tom sorridente' (smiling voice) como base para a narração. "
+            "Isso significa que, mesmo em momentos neutros, a voz deve soar amigável, calorosa e otimista. "
+            "Use isso para modular outras emoções. Por exemplo, uma <surpresa> deve ser agradável, e uma <ênfase> deve ser positiva.")
+            
         instructions.append("IMPORTANTE: Sua resposta deve conter APENAS o texto modificado com as tags inseridas. Não inclua nenhuma explicação, prefácio ou qualquer texto adicional.")
         
         final_prompt = "\n".join(instructions) + f"\n\nTexto original para reescrever:\n---\n{text_to_analyze}"
